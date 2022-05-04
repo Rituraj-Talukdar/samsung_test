@@ -25,20 +25,23 @@ bool isBiPartite(int i,int color[]){
 }
 
 int main(){
-    cin >> n;//No of nodes in graph
-    int color[n];//For coloring of graph
+    int tc,t =1;
+    cin>>tc;
+    while(tc--){
+    cin >> n;
+    int color[n];
     
     for(int i=0;i<n;i++){
     	color[i] = -1;
         for(int j=0;j<n;j++){
-            cin >> arr[i][j];//Input graph adjacency matrix
+            cin >> arr[i][j];
         }
     }
-    
+    cout<<'#'<<t;
     for(int i=0;i<n;i++){
 		if(color[i]==-1){
-			color[i] = 0;//Color starting node(of connected/disconnected graph) as 0
-			if(!isBiPartite(i,color)){//If not bipartite then print -1
+			color[i] = 0; 
+			if(!isBiPartite(i,color)){
 				cout << "-1" << endl;
 				return 0;
 			}
@@ -50,6 +53,7 @@ int main(){
 			cout << i << " ";//Print all nodes with color 0
 		}
 	}
-	
+	t++;
+    }
     return 0;
 }
